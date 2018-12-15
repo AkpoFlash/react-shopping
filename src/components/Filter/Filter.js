@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Input, Menu } from 'semantic-ui-react'
 
-import { setFilter, setSearchQuery } from '../actions/filter';
+import { setFilter, setSearchQuery } from '../../actions/filter';
 
 const Filter = (props) => {
   const activeItem = props.filterBy;

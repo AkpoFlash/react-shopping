@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Menu as MenuBase, Popup } from 'semantic-ui-react';
 
-import Basket from './Basket';
+import Basket from '../Basket/Basket';
 
 import './Menu.css';
 
@@ -36,4 +37,12 @@ const Menu = (props) => {
   );
 }
 
-export default Menu;
+const mapStateToProps = (state) => ({
+  totalPrice: state.card.items.reduce( (total, book) => total + book.price, 0),
+  count: state.card.items.length,
+  items: state.card.items,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

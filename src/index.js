@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import 'semantic-ui-css/semantic.min.css';
 
 import './index.css';
-import App from './container/App';
+import App from './components/App';
 import rootReducer from './reducers';
 
 

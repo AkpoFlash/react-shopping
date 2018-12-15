@@ -5,9 +5,9 @@ import { Card } from 'semantic-ui-react';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
 
-import Menu from '../container/Menu';
-import BookCard from '../container/BookCard';
-import Filter from './Filter.js';
+import Menu from './Menu/Menu';
+import BookCard from './BookCard/BookCard';
+import Filter from './Filter/Filter.js';
 import { setBooks } from '../actions/books';
 
 class App extends Component {
