@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Menu as MenuBase, Popup } from 'semantic-ui-react';
 
+import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
 
 import './Menu.css';
@@ -13,7 +14,7 @@ const Menu = (props) => {
   return(
     <MenuBase>
       <MenuBase.Item name='browse' onClick={ handleItemClick }>
-        Магазин книг
+        {t('Books shop')}
       </MenuBase.Item>
 
       <MenuBase.Menu position='right'>
@@ -21,13 +22,13 @@ const Menu = (props) => {
         <Popup
           trigger={
               <MenuBase.Item name='help' onClick={ handleItemClick }>
-                Корзина: { props.totalPrice } руб. (<b>{ props.count }</b>)
+                {t('Basket')}: { props.totalPrice } {t('Currency')} (<b>{ props.count }</b>)
               </MenuBase.Item>
             }
           content={
             props.count
             ?  <Basket { ...props } />
-            : <div>Ваша корзина пуста</div>
+          : <div>{t('Basket is empty')}</div>
           }
           on='click'
           hideOnScroll

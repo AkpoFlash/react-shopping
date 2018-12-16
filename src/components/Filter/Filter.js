@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Input, Menu } from 'semantic-ui-react'
 
+import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
 
 const Filter = (props) => {
@@ -21,31 +22,31 @@ const Filter = (props) => {
         name='all'
         active={ activeItem === 'all' }
         onClick={ handleItemClick } >
-        Все
+        {t('All')}
       </Menu.Item>
       <Menu.Item
         name='popular'
         active={ activeItem === 'popular' }
         onClick={ handleItemClick } >
-        Популярные
+        {t('Popular')}
       </Menu.Item>
       <Menu.Item
         name='price_high'
         active={ activeItem === 'price_high' }
         onClick={ handleItemClick } >
-        Цена (Дорогие)
+        {t('Price (Expensive)')}
       </Menu.Item>
       <Menu.Item
         name='price_low'
         active={ activeItem === 'price_low' }
         onClick={ handleItemClick } >
-        Цена (Дешевые)
+        {t('Price (Cheap)')}
       </Menu.Item>
       <Menu.Item
         name='author'
         active={ activeItem === 'author' }
         onClick={ handleItemClick } >
-        Автор
+        {t('Author')}
       </Menu.Item>
       <Menu.Item>
         <Input
@@ -53,7 +54,7 @@ const Filter = (props) => {
           icon='search'
           value={ props.searchQuery }
           onChange={ handleSearchChange }
-          placeholder='Поиск...' />
+          placeholder={t('Search...')} />
       </Menu.Item>
     </Menu>
   )

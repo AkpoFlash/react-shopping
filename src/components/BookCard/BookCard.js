@@ -3,6 +3,8 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 
+import { t } from '../../helpers';
+
 const BookCard = (props) => {
   const handleAddBookToCard = (e) => {
     props.addBookToCard(props);
@@ -26,7 +28,7 @@ const BookCard = (props) => {
           <Icon name='rub' />
         </span>
       </Card.Content>
-      <Button onClick={ handleAddBookToCard }>Добавить в корзину { props.addedCount > 0 ? `(${ props.addedCount })`: '' }</Button>
+      <Button onClick={ handleAddBookToCard }>{t('Add to basket')} { props.addedCount > 0 ? `(${ props.addedCount })`: '' }</Button>
     </Card>
   );
 };
