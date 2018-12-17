@@ -5,6 +5,7 @@ import { Card } from 'semantic-ui-react';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
 
+import { t } from '../helpers';
 import Menu from './Menu/Menu';
 import BookCard from './BookCard/BookCard';
 import Filter from './Filter/Filter.js';
@@ -27,7 +28,7 @@ class App extends Component {
         <Filter />
         <div className="App">
           <Card.Group itemsPerRow={4}>
-            { !isReady ? 'Загрузка...' :
+            { !isReady ? t('Loading...') :
               books.map( ( book, i ) => (
                 <BookCard key={i} { ...book } />
               ))
