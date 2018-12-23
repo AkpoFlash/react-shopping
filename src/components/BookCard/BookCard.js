@@ -1,35 +1,40 @@
 import React from 'react';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 
 import { t } from '../../helpers';
+import './BookCard.scss';
 
 const BookCard = (props) => {
   const handleAddBookToCard = (e) => {
     props.addBookToCard(props);
   }
   return (
-    <Card>
-      <Image src={ props.image } />
-      <Card.Content>
-        <Card.Header>
+    <div className='book-card'>
+      <img className='book-card__image' src={ props.image } />
+      <div className='book-card__content'>
+        <header>
           { props.title }
-        </Card.Header>
-        <Card.Meta>
+        </header>
+        <div>
           <span className='date'>
             { props.author }
           </span>
-        </Card.Meta>
-      </Card.Content>
-      <Card.Content extra>
+        </div>
+      </div>
+      <div className='book-card__content'>
         <span>
           { props.price }
-          <Icon name='rub' />
+          <svg className='book-card__currency'>
+          </svg>
         </span>
-      </Card.Content>
-      <Button onClick={ handleAddBookToCard }>{t('Add to basket')} { props.addedCount > 0 ? `(${ props.addedCount })`: '' }</Button>
-    </Card>
+      </div>
+      <button
+        className='book-card__button'
+        onClick={ handleAddBookToCard }>
+        {t('Add to basket')} { props.addedCount > 0 ? `(${ props.addedCount })`: '' }
+      </button>
+    </div>
   );
 };
 

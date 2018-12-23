@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Input, Menu } from 'semantic-ui-react'
 
 import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
@@ -8,8 +7,8 @@ import { setFilter, setSearchQuery } from '../../actions/filter';
 const Filter = (props) => {
   const activeItem = props.filterBy;
 
-  const handleItemClick = (e, { name }) => {
-    props.setFilter(name);
+  const handleItemClick = (e) => {
+    props.setFilter( e.target.name );
   }
 
   const handleSearchChange = (e) => {
@@ -17,46 +16,46 @@ const Filter = (props) => {
   }
 
   return (
-    <Menu secondary>
-      <Menu.Item
+    <ul className="filter">
+      <li
         name='all'
         active={ activeItem === 'all' }
         onClick={ handleItemClick } >
         {t('All')}
-      </Menu.Item>
-      <Menu.Item
+      </li>
+      <li
         name='popular'
         active={ activeItem === 'popular' }
         onClick={ handleItemClick } >
         {t('Popular')}
-      </Menu.Item>
-      <Menu.Item
+      </li>
+      <li
         name='price_high'
         active={ activeItem === 'price_high' }
         onClick={ handleItemClick } >
         {t('Price (Expensive)')}
-      </Menu.Item>
-      <Menu.Item
+      </li>
+      <li
         name='price_low'
         active={ activeItem === 'price_low' }
         onClick={ handleItemClick } >
         {t('Price (Cheap)')}
-      </Menu.Item>
-      <Menu.Item
+      </li>
+      <li
         name='author'
         active={ activeItem === 'author' }
         onClick={ handleItemClick } >
         {t('Author')}
-      </Menu.Item>
-      <Menu.Item>
-        <Input
+      </li>
+      <li>
+        <input
           name='search'
           icon='search'
           value={ props.searchQuery }
           onChange={ handleSearchChange }
           placeholder={t('Search...')} />
-      </Menu.Item>
-    </Menu>
+      </li>
+    </ul>
   )
 }
 
