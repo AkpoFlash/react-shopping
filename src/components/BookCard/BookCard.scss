@@ -1,0 +1,46 @@
+:root{
+	--secendaryColor: #bbb;
+}
+
+
+.book-card{
+	width: 170px;
+	border: 1px solid var(--secendaryColor);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.book-card__content{
+	padding: 5px 10px;
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--secendaryColor);
+}
+
+.book-card__image{
+	width: 100%;
+	height: 200px;
+	margin: 15px 0;
+	object-fit: contain;
+}
+
+.book-card header{
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+.book-card__currency{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: #000;
+}
+
+.book-card__button{
+	width: 100%;
+	height: 35px;
+	background: var(--secendaryColor);
+	color: #fff;
+}

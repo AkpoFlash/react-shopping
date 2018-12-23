@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'semantic-ui-react';
-import { Card } from 'semantic-ui-react';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
 
@@ -14,28 +12,26 @@ import { setBooks } from '../actions/books';
 class App extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  componentDidMount(){
-    fetch('/books.json')
+  componentDidMount() {
+    fetch('./books.json')
       .then( response => response.json())
-      .then( data => this.props.setBooks(data));
+      .then(data => this.props.setBooks(data));
   }
 
   render() {
     const { books, isReady } = this.props;
     return (
-      <Container>
-        <Menu />
-        <Filter />
-        <div className="App">
-          <Card.Group itemsPerRow={4}>
-            { !isReady ? t('Loading...') :
-              books.map( ( book, i ) => (
-                <BookCard key={i} { ...book } />
-              ))
-            }
-          </Card.Group>
-        </div>
-      </Container>
+      <div className="container">
+        <Menu className="menu" />
+        <Filter className="filter" />
+        <main className="container__context">
+          { !isReady ? t('Loading...') :
+            books.map( ( book, i ) => (
+              <BookCard key={i} { ...book } />
+            ))
+          }
+        </main>
+      </div>
     );
   }
 }
