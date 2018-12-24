@@ -7,6 +7,7 @@ import { t } from '../helpers';
 import Menu from './Menu/Menu';
 import BookCard from './BookCard/BookCard';
 import Filter from './Filter/Filter.js';
+import Footer from './Footer/Footer.js';
 import { setBooks } from '../actions/books';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
             ))
           }
         </main>
+        <Footer />
       </div>
     );
   }
