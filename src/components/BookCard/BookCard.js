@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 
 import { t } from '../../helpers';
-import './BookCard.scss';
 
 const BookCard = (props) => {
   const handleAddBookToCard = (e) => {
