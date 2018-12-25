@@ -8,7 +8,7 @@ const Filter = (props) => {
   const activeItem = props.filterBy;
 
   const handleItemClick = (e) => {
-    props.setFilter( e.target.name );
+    props.setFilter( e.target.getAttribute('name') );
   }
 
   const handleSearchChange = (e) => {
@@ -16,39 +16,40 @@ const Filter = (props) => {
   }
 
   return (
-    <ul className="filter">
+    <ul className='filter'>
       <li
         name='all'
-        active={ activeItem === 'all' }
-        onClick={ handleItemClick } >
+        onClick={ handleItemClick }
+        className={`filter__item ${activeItem === 'all' ? 'filter__item--active': ''}`} >
         {t('All')}
       </li>
       <li
         name='popular'
-        active={ activeItem === 'popular' }
-        onClick={ handleItemClick } >
+        onClick={ handleItemClick }
+        className={`filter__item ${activeItem === 'popular' ? 'filter__item--active' : ''}`} >
         {t('Popular')}
       </li>
       <li
         name='price_high'
-        active={ activeItem === 'price_high' }
-        onClick={ handleItemClick } >
+        onClick={ handleItemClick }
+        className={`filter__item ${activeItem === 'price_high' ? 'filter__item--active' : ''}`} >
         {t('Price (Expensive)')}
       </li>
       <li
         name='price_low'
-        active={ activeItem === 'price_low' }
-        onClick={ handleItemClick } >
+        onClick={ handleItemClick }
+        className={`filter__item ${activeItem === 'price_low' ? 'filter__item--active' : ''}`} >
         {t('Price (Cheap)')}
       </li>
       <li
         name='author'
-        active={ activeItem === 'author' }
-        onClick={ handleItemClick } >
+        onClick={ handleItemClick }
+        className={`filter__item ${activeItem === 'author' ? 'filter__item--active' : ''}`} >
         {t('Author')}
       </li>
       <li>
         <input
+          className='filter__search'
           name='search'
           icon='search'
           value={ props.searchQuery }
