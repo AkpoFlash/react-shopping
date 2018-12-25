@@ -7,4 +7,20 @@
 	padding: 0;
 	display: flex;
 	justify-content: space-around;
+
+	&__item{
+		cursor: pointer;
+		padding: 5px;
+		border-radius: 2px;
+		border: 1px solid $colorGray;
+		
+		&--active{
+			background-color: $colorGray;
+		}
+	}
+
+	&__search{
+		box-sizing: border-box;
+		height: 100%;
+	}
 }
