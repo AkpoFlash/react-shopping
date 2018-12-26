@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
@@ -15,48 +16,72 @@ const Filter = (props) => {
     props.setSearchQuery( e.target.value );
   }
 
+  const Filter = styled.ul`
+    width: 100%;
+    height: 25px;
+    grid-column: 2;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  `;
+
+  const Item = styled.li`
+    cursor: pointer;
+		padding: 5px;
+		border-radius: 2px;
+    border: 1px solid $colorGray;
+    background-color: ${ props => props.active ? '#bbb': 'inherit' };
+  `;
+
+  const Search = styled.input`
+    box-sizing: border-box;
+		height: 100%;
+  `;
+
   return (
-    <ul className='filter'>
-      <li
+    <Filter>
+      <Item
         name='all'
         onClick={ handleItemClick }
-        className={`filter__item ${activeItem === 'all' ? 'filter__item--active': ''}`} >
+        active={ activeItem === 'all' ? 'active': ''} >
         {t('All')}
-      </li>
-      <li
+      </Item>
+      <Item
         name='popular'
         onClick={ handleItemClick }
-        className={`filter__item ${activeItem === 'popular' ? 'filter__item--active' : ''}`} >
+        active={ activeItem === 'popular' ? 'active' : ''} >
         {t('Popular')}
-      </li>
-      <li
+      </Item>
+      <Item
         name='price_high'
         onClick={ handleItemClick }
-        className={`filter__item ${activeItem === 'price_high' ? 'filter__item--active' : ''}`} >
+        active={activeItem === 'price_high' ? 'active' : ''} >
         {t('Price (Expensive)')}
-      </li>
-      <li
+      </Item>
+      <Item
         name='price_low'
         onClick={ handleItemClick }
-        className={`filter__item ${activeItem === 'price_low' ? 'filter__item--active' : ''}`} >
+        active={activeItem === 'price_low' ? 'active' : ''} >
         {t('Price (Cheap)')}
-      </li>
-      <li
+      </Item>
+      <Item
         name='author'
         onClick={ handleItemClick }
-        className={`filter__item ${activeItem === 'author' ? 'filter__item--active' : ''}`} >
+        active={activeItem === 'author' ? 'active' : ''} >
         {t('Author')}
-      </li>
-      <li>
-        <input
+      </Item>
+      <Item>
+        <Search
           className='filter__search'
           name='search'
           icon='search'
           value={ props.searchQuery }
           onChange={ handleSearchChange }
           placeholder={t('Search...')} />
-      </li>
-    </ul>
+      </Item>
+    </Filter>
   )
 }
 
