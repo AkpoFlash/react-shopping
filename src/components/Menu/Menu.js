@@ -1,15 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
+
+const StyledMenu = styled.nav`
+	width: 100%;
+	grid-column: 2;
+	display: flex;
+  justify-content: space-between;
+  
+	& ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		height: 100%;
+
+		& li {
+			text-align: center;
+			box-sizing: border-box;
+			display: inline-block;
+			padding: 5px 15px;
+			height: 100%;
+		}
+  }
+`;
 
 const Menu = (props) => {
 
   const handleItemClick = (e) => {}
 
   return(
-    <nav className="menu">
+    <StyledMenu>
       <ul>
         <li name='browse' onClick={handleItemClick}>
           {t('Books shop')}
@@ -39,7 +62,7 @@ const Menu = (props) => {
           /> */}
         </li>
       </ul>
-    </nav>
+    </StyledMenu>
   );
 }
 

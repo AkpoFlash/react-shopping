@@ -1,39 +1,90 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addBookToCard, removeBookFromCard } from '../../actions/cards';
+import styled from 'styled-components';
 
+import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 import { t } from '../../helpers';
+import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY } from '../../constants/styles';
+
+const StyledBookCard = styled.div`
+	width: 170px;
+	border: 1px solid ${ COLOR_GRAY };
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+`;
+
+const Image = styled.img`
+	width: 100%;
+	height: 200px;
+	margin: 15px 0;
+	object-fit: contain;
+`;
+
+const Content = styled.div`
+	padding: 5px 10px;
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid ${ COLOR_GRAY };
+`;
+
+const ContentTitle = styled.h4`
+	font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+  margin: 0;
+  word-wrap: break-word;
+`;
+
+const Price = styled.span`
+  svg {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: ${ COLOR_BLACK };
+  }
+`;
+
+const Button = styled.button`
+	width: 100%;
+	height: 35px;
+	background: ${ COLOR_GRAY };
+  color: ${ COLOR_WHITE };
+  cursor: pointer;
+`;
 
 const BookCard = (props) => {
+  
   const handleAddBookToCard = (e) => {
     props.addBookToCard(props);
   }
+
   return (
-    <div className='book-card'>
-      <img className='book-card__image' src={ props.image } />
-      <div className='book-card__content'>
-        <header>
+    <StyledBookCard>
+      <Image src={ props.image } />
+      <Content>
+        <ContentTitle>
           { props.title }
-        </header>
+        </ContentTitle>
         <div>
           <span className='date'>
             { props.author }
           </span>
         </div>
-      </div>
-      <div className='book-card__content'>
-        <span>
+      </Content>
+      <Content>
+        <Price>
           { props.price }
-          <svg className='book-card__currency'>
+          <svg>
+
           </svg>
-        </span>
-      </div>
-      <button
-        className='book-card__button'
-        onClick={ handleAddBookToCard }>
+        </Price>
+      </Content>
+      <Button onClick={ handleAddBookToCard }>
         {t('Add to basket')} { props.addedCount > 0 ? `(${ props.addedCount })`: '' }
-      </button>
-    </div>
+      </Button>
+    </StyledBookCard>
   );
 };
 
