@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
 
@@ -9,6 +10,25 @@ import BookCard from './BookCard/BookCard';
 import Filter from './Filter/Filter.js';
 import Footer from './Footer/Footer.js';
 import { setBooks } from '../actions/books';
+
+const Container = styled.div`
+	display: grid;
+	grid-template-rows: 50px 25px 1fr 50px;
+	grid-template-columns: 25px 1fr 25px;
+	grid-row-gap: 20px;
+`;
+
+const Content = styled.main`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-column: 2;
+  grid-row: 3;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  grid-auto-columns: minmax(100px, 20%);
+`;
 
 class App extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -22,18 +42,18 @@ class App extends Component {
   render() {
     const { books, isReady } = this.props;
     return (
-      <div className="container">
-        <Menu className="menu" />
-        <Filter className="filter" />
-        <main className="container__context">
+      <Container>
+        <Menu />
+        <Filter />
+        <Content>
           { !isReady ? t('Loading...') :
             books.map( ( book, i ) => (
               <BookCard key={i} { ...book } />
             ))
           }
-        </main>
+        </Content>
         <Footer />
-      </div>
+      </Container>
     );
   }
 }

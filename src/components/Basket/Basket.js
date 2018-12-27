@@ -1,7 +1,30 @@
 import React from 'react';
+import styled from 'styled-components';
 import map from 'lodash/map';
 import reduce from 'lodash/reduce';
 import uniqBy from 'lodash/uniqBy';
+
+import { COLOR_GREEN, COLOR_RED } from '../../constants/styles';
+
+const Item = styled.div`
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  height: 35px;
+  background-color: ${ props => props.color };
+`;
+
+const Counter = styled.span`
+  font-weight: bold;
+  margin: 5px 0;
+`;
+
 
 const Basket = (props) => {
   const dublicateBooksCount = reduce(props.items, (result, book) => {
@@ -22,30 +45,28 @@ const Basket = (props) => {
       {
         map( uniqBy(props.items, 'id'), book => (
           <li key={ book.id }>
-            <div className='card__item'>
+            <Item>
               <image avatar src={ book.image } />
               <div>
                 <span>{book.title}</span>
                 <span>{book.author}</span>
               </div>
               <div>
-                <button
-                  className='card__button'
-                  color='green'
+                <Button
+                  color={ COLOR_GREEN }
                   onClick={ handleAddClick.bind(this, book) }>
                   +
-                </button>
-                <span className='card__count'>
+                </Button>
+                <Counter>
                   { dublicateBooksCount[book.id] }
-                </span>
-                <button
-                  className='card__button'
-                  color='red'
+                </Counter>
+                <Button
+                  color={ COLOR_RED }
                   onClick={ handleRemoveClick.bind(this, book) }>
                   -
-                </button>
+                </Button>
               </div>
-            </div>
+            </Item>
           </li>
         ) )
       }
