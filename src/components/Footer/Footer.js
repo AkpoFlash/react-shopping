@@ -1,21 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { COLOR_GRAY } from '../../constants/styles';
+
+const StyledFooter = styled.footer`
+	background-color: ${ COLOR_GRAY};
+	grid-row: 4;
+	grid-column: 2;
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+`;
+
 const Footer = (props) => {
-
-	const Footer = styled.footer`
-		background-color: var(--secendaryColor);
-		grid-row: 4;
-		grid-column: 2;
-		width: 100%;
-		text-align: center;
-		line-height: 50px;
-	`;
-
 	return (
-		<Footer>
+		<StyledFooter>
 			Copyright &#169; {(new Date()).getFullYear()}
-		</Footer>
+		</StyledFooter>
 	);
 }
 
