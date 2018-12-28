@@ -73,15 +73,11 @@ const Filter = (props) => {
         active={ activeItem === 'author' } >
         {t('Author')}
       </Item>
-      <Item>
-        <Search
-          className='filter__search'
-          name='search'
-          icon='search'
-          value={ props.searchQuery }
-          onChange={ handleSearchChange }
-          placeholder={t('Search...')} />
-      </Item>
+      <Search
+        name='search'
+        value={ props.searchQuery }
+        onChange={ handleSearchChange }
+        placeholder={t('Search...')} />
     </StyledFilter>
   )
 }
