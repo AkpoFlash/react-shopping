@@ -7,7 +7,8 @@ import { t } from '../../helpers';
 import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY } from '../../constants/styles';
 
 const StyledBookCard = styled.div`
-	width: 170px;
+  height: 100%;
+	width: 100%;
 	border: 1px solid ${ COLOR_GRAY };
 	border-radius: 10px;
 	display: flex;
