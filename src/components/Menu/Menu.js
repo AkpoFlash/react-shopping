@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
@@ -34,12 +35,16 @@ const Menu = (props) => {
   return(
     <StyledMenu>
       <ul>
-        <li name='browse' onClick={handleItemClick}>
-          {t('Books shop')}
-        </li>
-        <li name='browse' onClick={handleItemClick}>
-          {t('Books shop')}
-        </li>
+        <NavLink to='/'>
+          <li name='browse' onClick={handleItemClick}>
+            {t('Books shop')}
+          </li>
+        </NavLink>
+        <NavLink to='/books'>
+          <li name='browse' onClick={handleItemClick}>
+            {t('Books shop')}
+          </li>
+        </NavLink>
       </ul>
         
 
