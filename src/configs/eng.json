@@ -7,8 +7,13 @@
   "Price (Expensive)": "Price (Expensive)",
   "Price (Cheap)": "Price (Cheap)",
   "Author": "Author",
+  "Home": "Home",
   "Books shop": "Books shop",
   "Basket": "Basket",
   "Basket is empty": "Basket is empty",
-  "Add to basket": "Add to basket"
+  "Add to basket": "Add to basket",
+  "English": "English",
+  "Russian": "Russian",
+  "Eng": "Eng",
+  "Rus": "Rus"
 }

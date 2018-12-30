@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
+import LangSelect from '../LangSelect/LangSelect';
 
 const StyledMenu = styled.nav`
 	width: 100%;
@@ -32,12 +33,12 @@ const Menu = (props) => {
 
   const handleItemClick = (e) => {}
 
-  return(
+  return (
     <StyledMenu>
       <ul>
         <NavLink to='/'>
           <li name='browse' onClick={handleItemClick}>
-            {t('Books shop')}
+            {t('Home')}
           </li>
         </NavLink>
         <NavLink to='/books'>
@@ -49,6 +50,9 @@ const Menu = (props) => {
         
 
       <ul>
+        <li>
+          <LangSelect />
+        </li>
         <li>
           {t('Basket is empty')}
           {/* <Popup
