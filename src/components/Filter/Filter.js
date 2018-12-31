@@ -9,7 +9,7 @@ import { COLOR_GRAY } from '../../constants/styles';
 const StyledFilter = styled.ul`
   width: 100%;
   height: 25px;
-  grid-column: 2;
+  grid-column: 1 / 5;
   list-style: none;
   margin: 0;
   padding: 0;

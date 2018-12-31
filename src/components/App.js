@@ -4,7 +4,6 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Menu from './Menu/Menu';
-import Filter from './Filter/Filter.js';
 import Footer from './Footer/Footer.js';
 import { setBooks } from '../actions/books';
 import ShopWindow from './ShopWindow/ShopWindow';
@@ -12,7 +11,7 @@ import BookPage from './BookPage/BookPage';
 
 const Container = styled.div`
 	display: grid;
-	grid-template-rows: 50px 25px 1fr 50px;
+	grid-template-rows: 50px 1fr 50px;
 	grid-template-columns: 25px 1fr 25px;
   grid-row-gap: 20px;
 `;
@@ -21,7 +20,7 @@ const Content = styled.main`
   width: 100%;
   height: 100%;
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 2;
   justify-items: center;
 `;
 
@@ -38,7 +37,6 @@ class App extends Component {
     return (
       <Container>
         <Menu />
-        <Filter />
         <Content>
 
           <Switch>
