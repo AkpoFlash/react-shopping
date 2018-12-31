@@ -75,10 +75,11 @@ const Menu = (props) => {
   );
 }
 
-const mapStateToProps = (state) => ({
-  totalPrice: state.card.items.reduce( (total, book) => total + book.price, 0),
-  count: state.card.items.length,
-  items: state.card.items,
+const mapStateToProps = ({ card, languages }) => ({
+  totalPrice: card.items.reduce( (total, book) => total + book.price, 0),
+  count: card.items.length,
+  items: card.items,
+  usersLang: languages.usersLang,
 });
 
 const mapDispatchToProps = (dispatch) => ({});
