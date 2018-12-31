@@ -6,11 +6,13 @@ import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
 
 import { t } from '../../helpers';
+import Filter from '../Filter/Filter.js';
 import BookCard from '../BookCard/BookCard';
 
 const StyledShopWindow = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 25px 1fr;
   grid-gap: 25px;
   grid-auto-columns: minmax(100px, 20%);
 `;
@@ -20,6 +22,7 @@ const ShopWindow = (props) => {
 
 	return (
 		<StyledShopWindow>
+			<Filter />
 			{
 			!isReady ? t('Loading...') :
 				books.map((book, i) => (

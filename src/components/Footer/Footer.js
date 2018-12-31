@@ -5,7 +5,7 @@ import { COLOR_GRAY } from '../../constants/styles';
 
 const StyledFooter = styled.footer`
 	background-color: ${ COLOR_GRAY};
-	grid-row: 4;
+	grid-row: 3;
 	grid-column: 2;
 	width: 100%;
 	text-align: center;
