@@ -82,9 +82,11 @@ const Filter = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  filterBy: state.filter.filterBy,
-  searchQuery: state.filter.searchQuery,
+const mapStateToProps = ({ filter, languages }) => ({
+  filterBy: filter.filterBy,
+  searchQuery: filter.searchQuery,
+  usersLang: languages.usersLang,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

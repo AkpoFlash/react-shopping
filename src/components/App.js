@@ -53,8 +53,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = ({ languages }) => ({
+  usersLang: languages.usersLang,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setBooks: items => dispatch(setBooks(items)),
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
