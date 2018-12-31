@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
@@ -26,9 +25,7 @@ const ShopWindow = (props) => {
 			{
 			!isReady ? t('Loading...') :
 				books.map((book, i) => (
-					<Link to={`/books/${book.id}`} key={book.id}>
-						<BookCard  {...book} />
-					</Link>
+					<BookCard key={ book.id } { ...book } />
 				))
 			}
 		</StyledShopWindow>

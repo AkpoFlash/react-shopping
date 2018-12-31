@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 import { t } from '../../helpers';
-import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY } from '../../constants/styles';
+import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '../../constants/styles';
 
 const StyledBookCard = styled.div`
   height: 100%;
@@ -28,6 +29,11 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	border-top: 1px solid ${ COLOR_GRAY };
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${ COLOR_TEXT };
 `;
 
 const ContentTitle = styled.h4`
@@ -56,6 +62,7 @@ const Button = styled.button`
 `;
 
 const BookCard = (props) => {
+  const { id, title, author, price, image } = props;
   
   const handleAddBookToCard = (e) => {
     props.addBookToCard(props);
@@ -63,25 +70,27 @@ const BookCard = (props) => {
 
   return (
     <StyledBookCard>
-      <Image src={ props.image } />
-      <Content>
-        <ContentTitle>
-          { props.title }
-        </ContentTitle>
-        <div>
-          <span className='date'>
-            { props.author }
-          </span>
-        </div>
-      </Content>
-      <Content>
-        <Price>
-          { props.price }
-          <svg>
+      <StyledLink to={`/books/${ id }`} >
+        <Image src={ image } />
+        <Content>
+          <ContentTitle>
+            { title }
+          </ContentTitle>
+          <div>
+            <span className='date'>
+              { author }
+            </span>
+          </div>
+        </Content>
+        <Content>
+          <Price>
+            { price }
+            <svg>
 
-          </svg>
-        </Price>
-      </Content>
+            </svg>
+          </Price>
+        </Content>
+      </StyledLink>
       <Button onClick={ handleAddBookToCard }>
         {t('Add to basket')} { props.addedCount > 0 ? `(${ props.addedCount })`: '' }
       </Button>
