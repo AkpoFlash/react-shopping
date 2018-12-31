@@ -40,7 +40,7 @@ class App extends Component {
         <Content>
 
           <Switch>
-            <Route path='/' component={ ShopWindow } exact />
+            <Route path='/books' component={ ShopWindow } exact />
             <Route path='/books/:id' component={ BookPage } />
           </Switch>
           
