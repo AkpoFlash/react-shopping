@@ -26,7 +26,7 @@ const Counter = styled.span`
 `;
 
 
-const Basket = (props) => {
+const Basket = React.memo((props) => {
   const dublicateBooksCount = reduce(props.items, (result, book) => {
     result.hasOwnProperty(book.id) ? ++result[book.id] : result = { ...result, [book.id]: 1 };
     return result;
@@ -72,6 +72,6 @@ const Basket = (props) => {
       }
     </ul>
   );
-}
+});
 
 export default Basket;

@@ -6,7 +6,7 @@ import { t } from '../../helpers';
 import LANG from  '../../configs/languages';
 import { setLanguage } from '../../actions/languages';
 
-const LangSelect = (props) => {
+const LangSelect = React.memo((props) => {
 	
 	const handleChangeLang = (e) => {
 		props.setLanguage({
@@ -32,7 +32,7 @@ const LangSelect = (props) => {
 			</select>
 		</form>
 	);
-}
+});
 
 const mapStateToProps = ({ languages }) => ({
 	usersLang: languages.usersLang,

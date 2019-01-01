@@ -61,7 +61,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const BookCard = (props) => {
+const BookCard = React.memo((props) => {
   const { id, title, author, price, image } = props;
   
   const handleAddBookToCard = (e) => {
@@ -96,10 +96,11 @@ const BookCard = (props) => {
       </Button>
     </StyledBookCard>
   );
-};
+});
 
-const mapStateToProps = (state, props) => ({
-  addedCount: state.card.items.reduce( (count, book) => count + (book.id === props.id ? 1 : 0), 0),
+const mapStateToProps = ({ card, languages }, props) => ({
+  addedCount: card.items.reduce( (count, book) => count + (book.id === props.id ? 1 : 0), 0),
+  usersLang: languages.usersLang,
 });
 
 const mapDispatchToProps = (dispatch) => ({

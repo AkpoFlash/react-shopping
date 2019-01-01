@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
@@ -24,9 +24,7 @@ const Content = styled.main`
   justify-items: center;
 `;
 
-class App extends Component {
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
+class App extends PureComponent {
   componentDidMount() {
     fetch('./books.json')
       .then( response => response.json())
