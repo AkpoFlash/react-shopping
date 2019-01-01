@@ -9,9 +9,14 @@ import App from './components/App';
 import store from './store';
 import { saveState } from './helpers/localStorage';
 
-store.subscribe(() => {
-  throttle( () => saveState(store.getState()), 1000 );
-});
+store.subscribe( throttle(
+    () => {
+      console.log('store');
+      saveState(store.getState())
+    },
+    1000
+  )
+);
 
 const GlobalStyle = createGlobalStyle`
   *{
