@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import debounce from 'lodash/debounce';
 
 import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
@@ -30,15 +31,21 @@ const Search = styled.input`
   height: 100%;
 `;
 
-const Filter = (props) => {
+const Filter = React.memo((props) => {
   const activeItem = props.filterBy;
+
+  const perfomeChange = debounce(
+    (e) => props.setSearchQuery(e.target.value),
+    300
+  );
 
   const handleItemClick = (e) => {
     props.setFilter( e.target.getAttribute('name') );
   }
 
-  const handleSearchChange = (e) => {
-    props.setSearchQuery( e.target.value );
+  const handleSearchChange = (event) => {
+    event.persist();
+    perfomeChange(event);
   }
 
   return (
@@ -75,12 +82,11 @@ const Filter = (props) => {
       </Item>
       <Search
         name='search'
-        value={ props.searchQuery }
         onChange={ handleSearchChange }
         placeholder={t('Search...')} />
     </StyledFilter>
   )
-}
+});
 
 const mapStateToProps = ({ filter, languages }) => ({
   filterBy: filter.filterBy,

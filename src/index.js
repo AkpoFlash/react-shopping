@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import throttle from 'lodash/throttle';
 
 import App from './components/App';
 import store from './store';
 import { saveState } from './helpers/localStorage';
 
 store.subscribe(() => {
-  saveState(store.getState());
+  throttle( () => saveState(store.getState()), 1000 );
 });
 
 const GlobalStyle = createGlobalStyle`

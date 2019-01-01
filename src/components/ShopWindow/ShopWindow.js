@@ -16,7 +16,7 @@ const StyledShopWindow = styled.div`
   grid-auto-columns: minmax(100px, 20%);
 `;
 
-const ShopWindow = (props) => {
+const ShopWindow = React.memo((props) => {
 	const { books, isReady } = props;
 
 	return (
@@ -31,7 +31,7 @@ const ShopWindow = (props) => {
 		</StyledShopWindow>
 	);
 
-}
+});
 
 const sortBy = (books, filterBy, searchQuery) => {
 	books = filter(books, (item) => isInclude(item, searchQuery));

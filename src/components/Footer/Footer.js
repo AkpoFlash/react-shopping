@@ -12,12 +12,12 @@ const StyledFooter = styled.footer`
 	line-height: 50px;
 `;
 
-const Footer = (props) => {
+const Footer = React.memo((props) => {
 	return (
 		<StyledFooter>
 			Copyright &#169; {(new Date()).getFullYear()}
 		</StyledFooter>
 	);
-}
+});
 
 export default Footer;

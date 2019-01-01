@@ -29,26 +29,23 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = (props) => {
-
+const Menu = React.memo((props) => {
   const handleItemClick = (e) => {}
 
   return (
     <StyledMenu>
       <ul>
         <NavLink to='/'>
-          <li name='browse' onClick={handleItemClick}>
+          <li>
             {t('Home')}
           </li>
         </NavLink>
         <NavLink to='/books'>
-          <li name='browse' onClick={handleItemClick}>
+          <li>
             {t('Books shop')}
           </li>
         </NavLink>
       </ul>
-        
-
       <ul>
         <li>
           <LangSelect />
@@ -73,7 +70,7 @@ const Menu = (props) => {
       </ul>
     </StyledMenu>
   );
-}
+});
 
 const mapStateToProps = ({ card, languages }) => ({
   totalPrice: card.items.reduce( (total, book) => total + book.price, 0),
@@ -82,6 +79,4 @@ const mapStateToProps = ({ card, languages }) => ({
   usersLang: languages.usersLang,
 });
 
-const mapDispatchToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps)(Menu);
