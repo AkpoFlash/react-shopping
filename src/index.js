@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
 import App from './components/App';
 import store from './store';
+import { saveState } from './helpers/localStorage';
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -23,13 +28,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-
-
 ReactDOM.render(
   <Provider store={ store }>
-    <BrowserRouter>
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
     <GlobalStyle />
   </Provider>
   , document.getElementById('root')
