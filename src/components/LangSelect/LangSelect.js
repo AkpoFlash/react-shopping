@@ -22,8 +22,7 @@ const LangSelect = React.memo((props) => {
 					return (
 						<option 
 							value={ item.type } 
-							key={ item.type } 
-							selected={ props.usersLang === item.type } >
+							key={ item.type } >
 							{t(item.type)}
 						</option>
 					);

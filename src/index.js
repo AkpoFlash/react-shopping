@@ -11,7 +11,6 @@ import { saveState } from './helpers/localStorage';
 
 store.subscribe( throttle(
     () => {
-      console.log('store');
       saveState(store.getState())
     },
     1000
