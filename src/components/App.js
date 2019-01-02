@@ -8,12 +8,19 @@ import Footer from './Footer/Footer.js';
 import { setBooks } from '../actions/books';
 import ShopWindow from './ShopWindow/ShopWindow';
 import BookPage from './BookPage/BookPage';
+import NotFound from './NotFound/NotFound';
+import {
+  HEADER_HEIGHT,
+  FOOTER_HEIGHT,
+  GRID_SIDE_COLUMNS,
+  GRID_GAP
+} from '../constants/styles';
 
 const Container = styled.div`
 	display: grid;
-	grid-template-rows: 50px 1fr 50px;
-	grid-template-columns: 25px 1fr 25px;
-  grid-row-gap: 20px;
+	grid-template-rows: ${ HEADER_HEIGHT } 1fr ${ FOOTER_HEIGHT };
+	grid-template-columns: ${ GRID_SIDE_COLUMNS} 1fr ${ GRID_SIDE_COLUMNS };
+  grid-row-gap: ${ GRID_GAP };
 `;
 
 const Content = styled.main`
@@ -40,6 +47,7 @@ class App extends PureComponent {
           <Switch>
             <Route path='/books' component={ ShopWindow } exact />
             <Route path='/books/:id' component={ BookPage } />
+            <Route path='*' component={ NotFound } />
           </Switch>
           
         </Content>
