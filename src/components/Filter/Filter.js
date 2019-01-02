@@ -82,6 +82,7 @@ const Filter = React.memo((props) => {
       </Item>
       <Search
         name='search'
+        defaultValue={ props.searchQuery }
         onChange={ handleSearchChange }
         placeholder={t('Search...')} />
     </StyledFilter>
