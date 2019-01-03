@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
@@ -78,5 +79,12 @@ const mapStateToProps = ({ card, languages }) => ({
   items: card.items,
   usersLang: languages.usersLang,
 });
+
+Menu.propTypes = {
+  totalPrice: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
+  items: PropTypes.array.isRequired,
+  usersLang: PropTypes.string.isRequired,
+};
 
 export default connect(mapStateToProps)(Menu);

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import orderBy from 'lodash/orderBy';
 import filter from 'lodash/filter';
+import PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import Filter from '../Filter/Filter.js';
@@ -58,5 +59,10 @@ const mapStateToProps = ({ books, filter }) => ({
 	books: sortBy(books.items, filter.filterBy, filter.searchQuery),
 	isReady: books.isReady,
 })
+
+ShopWindow.propTypes = {
+	books: PropTypes.array.isRequired,
+	isReady: PropTypes.bool.isRequired,
+};
 
 export default connect(mapStateToProps)(ShopWindow);

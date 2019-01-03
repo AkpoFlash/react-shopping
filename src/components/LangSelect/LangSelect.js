@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import map from 'lodash/map';
+import PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import LANG from  '../../configs/languages';
@@ -40,5 +41,10 @@ const mapStateToProps = ({ languages }) => ({
 const mapDispatchToProps = (dispatch) => ({
 	setLanguage: ( lang ) => dispatch(setLanguage(lang)),
 });
+
+LangSelect.propTypes = {
+	usersLang: PropTypes.string.isRequired,
+	setLanguage: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LangSelect);

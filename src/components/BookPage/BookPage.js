@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import find from 'lodash/find';
+import PropTypes from 'prop-types';
 
 const Book = styled.div`
 	width: 100%;
@@ -53,5 +54,9 @@ const BookPage = React.memo((props) => {
 const mapStateToProps = ({ books }) => ({
 	books: books.items,
 });
+
+BookPage.propTypes = {
+	books: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(BookPage);

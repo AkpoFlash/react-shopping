@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import debounce from 'lodash/debounce';
+import PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
@@ -100,5 +101,13 @@ const mapDispatchToProps = (dispatch) => ({
     setFilter: ( filter ) => dispatch(setFilter(filter)),
     setSearchQuery: ( value ) => dispatch(setSearchQuery(value)),
 });
+
+Filter.propTypes = {
+  filterBy: PropTypes.string.isRequired,
+  searchQuery: PropTypes.string.isRequired,
+  usersLang: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  setSearchQuery: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
