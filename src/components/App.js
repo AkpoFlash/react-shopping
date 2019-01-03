@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer.js';
@@ -64,5 +65,10 @@ const mapStateToProps = ({ languages }) => ({
 const mapDispatchToProps = (dispatch) => ({
   setBooks: items => dispatch(setBooks(items)),
 })
+
+App.propTypes = {
+  usersLang: PropTypes.string.isRequired,
+  setBooks: PropTypes.func.isRequired,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 import { t } from '../../helpers';
@@ -107,5 +108,12 @@ const mapDispatchToProps = (dispatch) => ({
   addBookToCard: book => dispatch(addBookToCard(book)),
   removeBookFromCard: book => dispatch(removeBookFromCard(book)),
 })
+
+BookCard.propTypes = {
+  addedCount: PropTypes.number.isRequired,
+  usersLang: PropTypes.string.isRequired,
+  addBookToCard: PropTypes.func.isRequired,
+  removeBookFromCard: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookCard);
