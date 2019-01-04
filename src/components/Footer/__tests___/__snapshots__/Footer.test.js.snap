@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should Footer not changed 1`] = `
+<footer
+  class="sc-bdVaJa bUietH"
+>
+  Copyright © 2019
+</footer>
+`;
