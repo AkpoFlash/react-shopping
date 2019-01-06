@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from 'enzyme';
 
-import Menu from '../Menu';
+import { Menu } from '../Menu';
 
-describe('Menu', () => {
-	const menu = render(Menu);
+describe('Dumb Menu', () => {
+	const menu = shallow(<Menu />);
 
-	it('should Menu not changed', () => {
+	it('check Menu snapshot', () => {
 		expect(menu).toMatchSnapshot();
 	});
 });

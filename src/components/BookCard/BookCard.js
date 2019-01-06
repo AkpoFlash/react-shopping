@@ -62,7 +62,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const BookCard = React.memo((props) => {
+export const BookCard = (props) => {
   const { id, title, author, price, image } = props;
   
   const handleAddBookToCard = (e) => {
@@ -97,7 +97,7 @@ const BookCard = React.memo((props) => {
       </Button>
     </StyledBookCard>
   );
-});
+};
 
 const mapStateToProps = ({ card, languages }, props) => ({
   addedCount: card.items.reduce( (count, book) => count + (book.id === props.id ? 1 : 0), 0),
@@ -116,4 +116,4 @@ BookCard.propTypes = {
   removeBookFromCard: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookCard);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(BookCard));

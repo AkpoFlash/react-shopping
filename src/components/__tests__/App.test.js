@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from 'enzyme';
+import "isomorphic-fetch";
 
-import App from '../App';
+import ConnectedApp, { App } from '../App';
 
-describe('App', () => {
-	const app = render(App);
+describe('Dumb App', () => {
+	const app = shallow(<App />);
 
-	it('should App not changed', () => {
+	it('check App shapshot', () => {
 		expect(app).toMatchSnapshot();
 	});
 });

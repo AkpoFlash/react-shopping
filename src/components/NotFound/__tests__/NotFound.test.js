@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from 'enzyme';
 
 import NotFound from '../NotFound';
 
-describe('NotFound', () => {
-	const notFound = render(NotFound);
+describe('Dumb NotFound', () => {
+	const notFound = shallow(<NotFound />);
 
-	it('should NotFound not changed', () => {
+	it('check NotFound snapshot', () => {
 		expect(notFound).toMatchSnapshot();
 	});
 });

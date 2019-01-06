@@ -32,7 +32,7 @@ const Content = styled.main`
   justify-items: center;
 `;
 
-class App extends PureComponent {
+export class App extends PureComponent {
   componentDidMount() {
     fetch('./books.json')
       .then( response => response.json())
@@ -64,7 +64,7 @@ const mapStateToProps = ({ languages }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setBooks: items => dispatch(setBooks(items)),
-})
+});
 
 App.propTypes = {
   usersLang: PropTypes.string.isRequired,

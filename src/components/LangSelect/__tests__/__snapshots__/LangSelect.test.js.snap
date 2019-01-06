@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LangSelect should LangSelect not changed 1`] = `null`;
+exports[`LangSelect check LangSelect snapshot 1`] = `
+<form>
+  <select>
+    <option
+      value="Eng"
+    >
+      Eng
+    </option>
+    <option
+      value="Rus"
+    >
+      Rus
+    </option>
+  </select>
+</form>
+`;

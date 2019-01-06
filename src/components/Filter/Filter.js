@@ -32,7 +32,7 @@ const Search = styled.input`
   height: 100%;
 `;
 
-const Filter = React.memo((props) => {
+export const Filter = (props) => {
   const activeItem = props.filterBy;
 
   const perfomeChange = debounce(
@@ -48,6 +48,7 @@ const Filter = React.memo((props) => {
     event.persist();
     perfomeChange(event);
   }
+
 
   return (
     <StyledFilter>
@@ -88,7 +89,7 @@ const Filter = React.memo((props) => {
         placeholder={t('Search...')} />
     </StyledFilter>
   )
-});
+};
 
 const mapStateToProps = ({ filter, languages }) => ({
   filterBy: filter.filterBy,
@@ -110,4 +111,4 @@ Filter.propTypes = {
   setSearchQuery: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Filter));

@@ -1,12 +1,11 @@
 import React from 'react';
-import { render } from 'enzyme';
 
-import BookCard from '../BookCard';
+import { BookCard } from '../BookCard';
 
-describe('BookCard', () => {
-	const bookCard = render(BookCard);
+describe('Dumb BookCard', () => {
+	const bookCard = shallow(<BookCard />);
 
-	it('should BookCard not changed', () => {
+	it('check BookCard snapshot', () => {
 		expect(bookCard).toMatchSnapshot();
 	});
 });
