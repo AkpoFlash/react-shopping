@@ -28,7 +28,7 @@ const Rating = styled.header`
 
 `;
 
-const BookPage = React.memo((props) => {
+export const BookPage = (props) => {
 	const { id } = props.match.params;
 	const book = find( props.books, { 'id': +id } );
 
@@ -49,7 +49,7 @@ const BookPage = React.memo((props) => {
 			</Rating>
 		</Book>
 	);
-});
+};
 
 const mapStateToProps = ({ books }) => ({
 	books: books.items,
@@ -59,4 +59,4 @@ BookPage.propTypes = {
 	books: PropTypes.array.isRequired,
 };
 
-export default connect(mapStateToProps)(BookPage);
+export default connect(mapStateToProps)(React.memo(BookPage));

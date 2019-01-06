@@ -1,3 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookPage should BookPage not changed 1`] = `null`;
+exports[`Dumb BookPage check BookPage snapshot 1`] = `
+<styled.div>
+  <styled.header
+    src="default.png"
+  />
+  <styled.header>
+    Title book
+  </styled.header>
+  <styled.header>
+    Author book
+  </styled.header>
+  <styled.header>
+    100
+  </styled.header>
+  <styled.header>
+    5
+  </styled.header>
+</styled.div>
+`;

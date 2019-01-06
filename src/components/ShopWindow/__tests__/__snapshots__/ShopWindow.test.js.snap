@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ShopWindow should ShopWindow not changed 1`] = `null`;
+exports[`Dumb ShopWindow check ShopWindow spapshot 1`] = `
+<styled.div>
+  <Connect(Component) />
+  Loading...
+</styled.div>
+`;

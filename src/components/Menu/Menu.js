@@ -30,7 +30,7 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = React.memo((props) => {
+export const Menu = (props) => {
   const handleItemClick = (e) => {}
 
   return (
@@ -71,7 +71,7 @@ const Menu = React.memo((props) => {
       </ul>
     </StyledMenu>
   );
-});
+};
 
 const mapStateToProps = ({ card, languages }) => ({
   totalPrice: card.items.reduce( (total, book) => total + book.price, 0),
@@ -87,4 +87,4 @@ Menu.propTypes = {
   usersLang: PropTypes.string.isRequired,
 };
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(React.memo(Menu));

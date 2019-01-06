@@ -1,12 +1,13 @@
 import React from 'react';
-import { render } from 'enzyme';
 
-import ShopWindow from '../ShopWindow';
+import { ShopWindow } from '../ShopWindow';
 
-describe('ShopWindow', () => {
-	const shopWindow = render(ShopWindow);
+describe('Dumb ShopWindow', () => {
+	const shopWindow = shallow(<ShopWindow />);
 
-	it('should ShopWindow not changed', () => {
+	it('check ShopWindow spapshot', () => {
 		expect(shopWindow).toMatchSnapshot();
 	});
 });
+
+//TODO tests for Connected component

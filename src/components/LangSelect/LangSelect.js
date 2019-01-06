@@ -7,7 +7,7 @@ import { t } from '../../helpers';
 import LANG from  '../../configs/languages';
 import { setLanguage } from '../../actions/languages';
 
-const LangSelect = React.memo((props) => {
+export const LangSelect = (props) => {
 	
 	const handleChangeLang = (e) => {
 		props.setLanguage({
@@ -32,7 +32,7 @@ const LangSelect = React.memo((props) => {
 			</select>
 		</form>
 	);
-});
+};
 
 const mapStateToProps = ({ languages }) => ({
 	usersLang: languages.usersLang,
@@ -47,4 +47,4 @@ LangSelect.propTypes = {
 	setLanguage: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LangSelect);
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(LangSelect));

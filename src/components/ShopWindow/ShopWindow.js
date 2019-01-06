@@ -17,7 +17,7 @@ const StyledShopWindow = styled.div`
   grid-auto-columns: minmax(100px, 20%);
 `;
 
-const ShopWindow = React.memo((props) => {
+export const ShopWindow = (props) => {
 	const { books, isReady } = props;
 
 	return (
@@ -32,7 +32,7 @@ const ShopWindow = React.memo((props) => {
 		</StyledShopWindow>
 	);
 
-});
+};
 
 const sortBy = (books, filterBy, searchQuery) => {
 	books = filter(books, (item) => isInclude(item, searchQuery));
@@ -65,4 +65,4 @@ ShopWindow.propTypes = {
 	isReady: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps)(ShopWindow);
+export default connect(mapStateToProps)(React.memo(ShopWindow));

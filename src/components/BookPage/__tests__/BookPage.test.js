@@ -1,12 +1,13 @@
 import React from 'react';
-import { render } from 'enzyme';
 
-import BookPage from '../BookPage';
+import { BookPage } from '../BookPage';
+import { props } from '../__mocks__/BookPage.js';
 
-describe('BookPage', () => {
-	const bookPage = render(BookPage);
+describe('Dumb BookPage', () => {
 
-	it('should BookPage not changed', () => {
+	const bookPage = shallow(<BookPage {...props} />);
+
+	it('check BookPage snapshot', () => {
 		expect(bookPage).toMatchSnapshot();
 	});
 });

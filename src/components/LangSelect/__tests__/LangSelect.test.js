@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'enzyme';
 
-import LangSelect from '../LangSelect';
+import { LangSelect } from '../LangSelect';
 
 describe('LangSelect', () => {
-	const langSelect = render(LangSelect);
+	const langSelect = render(<LangSelect />);
 
-	it('should LangSelect not changed', () => {
+	it('check LangSelect snapshot', () => {
 		expect(langSelect).toMatchSnapshot();
 	});
 });

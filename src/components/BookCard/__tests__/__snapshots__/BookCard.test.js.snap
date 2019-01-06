@@ -1,3 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookCard should BookCard not changed 1`] = `null`;
+exports[`Dumb BookCard check BookCard snapshot 1`] = `
+<styled.div>
+  <Styled(Link)
+    to="/books/undefined"
+  >
+    <styled.img />
+    <styled.div>
+      <styled.h4 />
+      <div>
+        <span
+          className="date"
+        />
+      </div>
+    </styled.div>
+    <styled.div>
+      <styled.span>
+        <svg />
+      </styled.span>
+    </styled.div>
+  </Styled(Link)>
+  <styled.button
+    onClick={[Function]}
+  >
+    Add to basket
+     
+  </styled.button>
+</styled.div>
+`;
