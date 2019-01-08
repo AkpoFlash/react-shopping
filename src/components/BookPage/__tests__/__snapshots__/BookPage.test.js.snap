@@ -2,20 +2,21 @@
 
 exports[`Dumb BookPage check BookPage snapshot 1`] = `
 <styled.div>
-  <styled.header
+  <styled.img
     src="default.png"
   />
-  <styled.header>
+  <styled.h1>
     Title book
-  </styled.header>
-  <styled.header>
+  </styled.h1>
+  <styled.h2>
     Author book
-  </styled.header>
-  <styled.header>
+  </styled.h2>
+  <styled.div>
     100
-  </styled.header>
-  <styled.header>
+    <svg />
+  </styled.div>
+  <styled.div>
     5
-  </styled.header>
+  </styled.div>
 </styled.div>
 `;
