@@ -18,13 +18,20 @@ module.exports = {
 				test: /\.(s*)css$/,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
-			{
-				test: /\.(js|jsx)$/,
+			{ 
+				test: /\.(t|j)sx?$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				}
+				use: { 
+					loader: 'awesome-typescript-loader'
+				},
 			},
+			// {
+			// 	test: /\.(js|jsx)$/,
+			// 	exclude: /node_modules/,
+			// 	use: {
+			// 		loader: 'babel-loader',
+			// 	}
+			// },
 		]
 	},
 	plugins: [htmlPlugin]
