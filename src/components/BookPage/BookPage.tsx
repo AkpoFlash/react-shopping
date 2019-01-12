@@ -1,10 +1,12 @@
-import React from 'react';
+// Because ts-jest can't do this allowSyntheticDefaultImports
+// I created import like this ( * as bla-bla ... )
+import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import find from 'lodash/find';
-import PropTypes from 'prop-types';
+import { find } from 'lodash';
+import * as PropTypes from 'prop-types';
 
-import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '../../constants/styles';
+import { COLOR_BLACK, COLOR_GRAY } from '../../constants/styles';
 
 const Book = styled.div`
 	width: 100%;
@@ -41,9 +43,9 @@ const Rating = styled.div`
 
 `;
 
-export const BookPage = (props) => {
+export const BookPage: React.FunctionComponent<any> = (props) => {
 	const { id } = props.match.params;
-	const book = find( props.books, { 'id': +id } );
+	const book: any = find( props.books, { 'id': +id } );
 
 	return (
 		<Book>
