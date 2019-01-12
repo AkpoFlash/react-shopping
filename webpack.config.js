@@ -12,6 +12,9 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js'
 	},
+	resolve: {
+		extensions: ['.js', '.jsx', '.ts', '.tsx']
+	},
 	module: {
 		rules: [
 			{
@@ -24,14 +27,7 @@ module.exports = {
 				use: { 
 					loader: 'awesome-typescript-loader'
 				},
-			},
-			// {
-			// 	test: /\.(js|jsx)$/,
-			// 	exclude: /node_modules/,
-			// 	use: {
-			// 		loader: 'babel-loader',
-			// 	}
-			// },
+			}
 		]
 	},
 	plugins: [htmlPlugin]
