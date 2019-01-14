@@ -4,30 +4,35 @@ exports[`Dumb Filter check Filter shapshot 1`] = `
 <styled.ul>
   <styled.li
     data-active={false}
+    data-name="all"
     onClick={[Function]}
   >
     All
   </styled.li>
   <styled.li
     data-active={false}
+    data-name="popular"
     onClick={[Function]}
   >
     Popular
   </styled.li>
   <styled.li
     data-active={false}
+    data-name="price_high"
     onClick={[Function]}
   >
     Price (Expensive)
   </styled.li>
   <styled.li
     data-active={false}
+    data-name="price_low"
     onClick={[Function]}
   >
     Price (Cheap)
   </styled.li>
   <styled.li
     data-active={false}
+    data-name="author"
     onClick={[Function]}
   >
     Author
