@@ -24,7 +24,7 @@ const Item = styled.li`
   padding: 5px;
   border-radius: 2px;
   border: 1px solid ${ COLOR_GRAY };
-  background-color: ${ (props: any) => props.active ? COLOR_GRAY : 'inherit'};
+  background-color: ${ (props: any) => props['data-active'] ? COLOR_GRAY : 'inherit'};
 `;
 
 const Search = styled.input`
@@ -41,7 +41,7 @@ export const Filter: React.FunctionComponent<any> = (props) => {
   );
 
   const handleItemClick = (e) => {
-    props.setFilter( e.target.getAttribute('name') );
+    props.setFilter( e.target.getAttribute('data-name') );
   }
 
   const handleSearchChange = (event) => {
@@ -53,26 +53,31 @@ export const Filter: React.FunctionComponent<any> = (props) => {
   return (
     <StyledFilter>
       <Item
+        data-name='all'
         onClick={ handleItemClick }
         data-active={ activeItem === 'all' } >
         {t('All')}
       </Item>
       <Item
+        data-name='popular'
         onClick={ handleItemClick }
         data-active={ activeItem === 'popular' } >
         {t('Popular')}
       </Item>
       <Item
+        data-name='price_high'
         onClick={ handleItemClick }
         data-active={ activeItem === 'price_high' } >
         {t('Price (Expensive)')}
       </Item>
       <Item
+        data-name='price_low'
         onClick={ handleItemClick }
         data-active={ activeItem === 'price_low' } >
         {t('Price (Cheap)')}
       </Item>
       <Item
+        data-name='author'
         onClick={ handleItemClick }
         data-active={ activeItem === 'author' } >
         {t('Author')}
