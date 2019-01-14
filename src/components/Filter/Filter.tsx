@@ -1,8 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import debounce from 'lodash/debounce';
-import PropTypes from 'prop-types';
+import { debounce } from 'lodash';
+import * as PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import { setFilter, setSearchQuery } from '../../actions/filter';
@@ -24,7 +24,7 @@ const Item = styled.li`
   padding: 5px;
   border-radius: 2px;
   border: 1px solid ${ COLOR_GRAY };
-  background-color: ${ props => props.active ? COLOR_GRAY : 'inherit'};
+  background-color: ${ (props: any) => props.active ? COLOR_GRAY : 'inherit'};
 `;
 
 const Search = styled.input`
@@ -32,7 +32,7 @@ const Search = styled.input`
   height: 100%;
 `;
 
-export const Filter = (props) => {
+export const Filter: React.FunctionComponent<any> = (props) => {
   const activeItem = props.filterBy;
 
   const perfomeChange = debounce(
@@ -53,33 +53,28 @@ export const Filter = (props) => {
   return (
     <StyledFilter>
       <Item
-        name='all'
         onClick={ handleItemClick }
-        active={ activeItem === 'all' } >
+        data-active={ activeItem === 'all' } >
         {t('All')}
       </Item>
       <Item
-        name='popular'
         onClick={ handleItemClick }
-        active={ activeItem === 'popular' } >
+        data-active={ activeItem === 'popular' } >
         {t('Popular')}
       </Item>
       <Item
-        name='price_high'
         onClick={ handleItemClick }
-        active={ activeItem === 'price_high' } >
+        data-active={ activeItem === 'price_high' } >
         {t('Price (Expensive)')}
       </Item>
       <Item
-        name='price_low'
         onClick={ handleItemClick }
-        active={ activeItem === 'price_low' } >
+        data-active={ activeItem === 'price_low' } >
         {t('Price (Cheap)')}
       </Item>
       <Item
-        name='author'
         onClick={ handleItemClick }
-        active={ activeItem === 'author' } >
+        data-active={ activeItem === 'author' } >
         {t('Author')}
       </Item>
       <Search

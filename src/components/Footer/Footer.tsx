@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 import { COLOR_GRAY } from '../../constants/styles';
@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
 	line-height: 50px;
 `;
 
-export const Footer = (props) => {
+export const Footer: React.FunctionComponent<any> = (props) => {
 	return (
 		<StyledFooter>
 			Copyright &#169; {(new Date()).getFullYear()}

@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
 import Basket from '../Basket/Basket';
@@ -30,7 +30,7 @@ const StyledMenu = styled.nav`
   }
 `;
 
-export const Menu = (props) => {
+export const Menu: React.FunctionComponent<any> = (props) => {
   const handleItemClick = (e) => {}
 
   return (

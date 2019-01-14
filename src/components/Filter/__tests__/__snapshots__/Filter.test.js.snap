@@ -3,36 +3,31 @@
 exports[`Dumb Filter check Filter shapshot 1`] = `
 <styled.ul>
   <styled.li
-    active={false}
-    name="all"
+    data-active={false}
     onClick={[Function]}
   >
     All
   </styled.li>
   <styled.li
-    active={false}
-    name="popular"
+    data-active={false}
     onClick={[Function]}
   >
     Popular
   </styled.li>
   <styled.li
-    active={false}
-    name="price_high"
+    data-active={false}
     onClick={[Function]}
   >
     Price (Expensive)
   </styled.li>
   <styled.li
-    active={false}
-    name="price_low"
+    data-active={false}
     onClick={[Function]}
   >
     Price (Cheap)
   </styled.li>
   <styled.li
-    active={false}
-    name="author"
+    data-active={false}
     onClick={[Function]}
   >
     Author
