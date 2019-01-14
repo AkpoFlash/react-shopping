@@ -4,9 +4,9 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Menu from './Menu/Menu';
-import Footer from './Footer/Footer.js';
 import { setBooks } from '../actions/books';
+import Menu from './Menu/Menu';
+import Footer from './Footer/Footer';
 import ShopWindow from './ShopWindow/ShopWindow';
 import BookPage from './BookPage/BookPage';
 import NotFound from './NotFound/NotFound';

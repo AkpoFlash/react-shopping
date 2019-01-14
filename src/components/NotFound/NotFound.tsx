@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 import {
@@ -13,7 +13,7 @@ const ErrorPage = styled.div`
 	height: calc( 100vh - ${ HEADER_HEIGHT} - ${ FOOTER_HEIGHT } - 2 * ${ GRID_GAP } );
 `;
 
-const NotFound = (props) => {
+const NotFound: React.FunctionComponent<any> = (props) => {
 	return (
 		<ErrorPage>
 			404 - Page not found

@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 import { addBookToCard, removeBookFromCard } from '../../actions/cards';
 import { t } from '../../helpers';
@@ -62,7 +62,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export const BookCard = (props) => {
+export const BookCard: React.FunctionComponent<any> = (props) => {
   const { id, title, author, price, image } = props;
   
   const handleAddBookToCard = (e) => {

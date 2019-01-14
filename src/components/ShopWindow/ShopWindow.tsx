@@ -1,12 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import orderBy from 'lodash/orderBy';
-import filter from 'lodash/filter';
-import PropTypes from 'prop-types';
+import { orderBy, filter} from 'lodash';
+import * as PropTypes from 'prop-types';
 
 import { t } from '../../helpers';
-import Filter from '../Filter/Filter.js';
+import Filter from '../Filter/Filter';
 import BookCard from '../BookCard/BookCard';
 
 const StyledShopWindow = styled.div`
@@ -17,7 +16,7 @@ const StyledShopWindow = styled.div`
   grid-auto-columns: minmax(100px, 20%);
 `;
 
-export const ShopWindow = (props) => {
+export const ShopWindow: React.FunctionComponent<any> = (props) => {
 	const { books, isReady } = props;
 
 	return (

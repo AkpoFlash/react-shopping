@@ -17,10 +17,6 @@ describe('Dumb Filter', () => {
 		expect(mountWrapper.find('ul').exists()).toBe(true);
 	});
 
-	it('Filter contain element with "all" name', () => {
-		expect(mountWrapper.find('ul li[name="all"]').exists()).toBe(true);
-	});
-
 });
 
 // Enzyme is not supported new `memo` feature from React 16.6, without `memo` all work good
