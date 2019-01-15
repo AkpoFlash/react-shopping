@@ -5,11 +5,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { setBooks } from '../actions/books';
+import { setFingerPrint } from '../actions/fingerPrint';
 import Menu from './Menu/Menu';
 import Footer from './Footer/Footer';
 import ShopWindow from './ShopWindow/ShopWindow';
 import BookPage from './BookPage/BookPage';
 import NotFound from './NotFound/NotFound';
+import getFingerPrint from '../helpers/fingerPrint';
 import {
   HEADER_HEIGHT,
   FOOTER_HEIGHT,
@@ -35,8 +37,11 @@ const Content = styled.main`
 export class App extends PureComponent {
   componentDidMount() {
     fetch('./books.json')
-      .then( response => response.json())
-      .then(data => this.props.setBooks(data));
+      .then( response => response.json() )
+      .then( data => this.props.setBooks(data) );
+
+    getFingerPrint()
+      .then( response => this.props.setFingerPrint(response) );
   }
 
   render() {
@@ -64,11 +69,13 @@ const mapStateToProps = ({ languages }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setBooks: items => dispatch(setBooks(items)),
+  setFingerPrint: items => dispatch(setFingerPrint(items)),
 });
 
 App.propTypes = {
   usersLang: PropTypes.string.isRequired,
   setBooks: PropTypes.func.isRequired,
+  setFingerPrint: PropTypes.func.isRequired,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
