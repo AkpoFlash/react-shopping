@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { find } from 'lodash';
 import * as PropTypes from 'prop-types';
 
-import { COLOR_BLACK, COLOR_GRAY } from '../../constants/styles';
+import { COLOR_BLACK, COLOR_GRAY } from '~/constants/styles';
 
 const Book = styled.div`
 	width: 100%;

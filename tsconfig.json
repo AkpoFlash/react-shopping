@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "./dist/",
+		"baseUrl": "./",
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"module": "es6",
@@ -9,6 +10,11 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
+		"paths": {
+			"~/*": [
+				"src/*",
+			]
+		}
 	},
 	"exclude": [
 			"node_modules"

@@ -1,4 +1,4 @@
-import LANG from '../configs/languages';
+import LANG from '~/configs/languages';
 
 const DetectedLang = (stateLang = '') => {
 	const currentLang = stateLang || window.navigator.language;

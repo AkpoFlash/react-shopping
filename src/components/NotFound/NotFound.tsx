@@ -5,7 +5,7 @@ import {
 	HEADER_HEIGHT,
 	FOOTER_HEIGHT,
 	GRID_GAP
-} from '../../constants/styles';
+} from '~/constants/styles';
 
 const ErrorPage = styled.div`
 	grid-column: 2;

@@ -1,4 +1,4 @@
-import { removeBookByID } from '../helpers/card';
+import { removeBookByID } from '~/helpers/card';
 
 const initialState = {
   items: [],
