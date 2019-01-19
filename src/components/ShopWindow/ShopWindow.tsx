@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { orderBy, filter} from 'lodash';
 import * as PropTypes from 'prop-types';
 
-import { t } from '../../helpers';
-import Filter from '../Filter/Filter';
-import BookCard from '../BookCard/BookCard';
+import { t } from '~/helpers';
+import Filter from '~/components/Filter/Filter';
+import BookCard from '~/components/BookCard/BookCard';
 
 const StyledShopWindow = styled.div`
   display: grid;

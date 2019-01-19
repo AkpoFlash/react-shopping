@@ -4,20 +4,20 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { setBooks } from '../actions/books';
-import { setFingerPrint } from '../actions/fingerPrint';
-import Menu from './Menu/Menu';
-import Footer from './Footer/Footer';
-import ShopWindow from './ShopWindow/ShopWindow';
-import BookPage from './BookPage/BookPage';
-import NotFound from './NotFound/NotFound';
-import getFingerPrint from '../helpers/fingerPrint';
+import { setBooks } from '~/actions/books';
+import { setFingerPrint } from '~/actions/fingerPrint';
+import Menu from '~/components/Menu/Menu';
+import Footer from '~/components/Footer/Footer';
+import ShopWindow from '~/components/ShopWindow/ShopWindow';
+import BookPage from '~/components/BookPage/BookPage';
+import NotFound from '~/components/NotFound/NotFound';
+import getFingerPrint from '~/helpers/fingerPrint';
 import {
   HEADER_HEIGHT,
   FOOTER_HEIGHT,
   GRID_SIDE_COLUMNS,
   GRID_GAP
-} from '../constants/styles';
+} from '~/constants/styles';
 
 const Container = styled.div`
 	display: grid;

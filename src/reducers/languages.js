@@ -1,4 +1,4 @@
-import { default as usersLang } from '../helpers/languages';
+import { default as usersLang } from '~/helpers/languages';
 
 const initialState = {
 	usersLang: usersLang().type,

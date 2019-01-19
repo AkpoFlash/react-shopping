@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 
-import { t } from '../../helpers';
-import Basket from '../Basket/Basket';
-import LangSelect from '../LangSelect/LangSelect';
+import { t } from '~/helpers';
+import Basket from '~/components/Basket/Basket';
+import LangSelect from '~/components/LangSelect/LangSelect';
 
 const StyledMenu = styled.nav`
 	width: 100%;

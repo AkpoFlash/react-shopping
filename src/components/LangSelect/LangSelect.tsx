@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { map } from 'lodash';
 import * as PropTypes from 'prop-types';
 
-import { t } from '../../helpers';
-import LANG from  '../../configs/languages';
-import { setLanguage } from '../../actions/languages';
+import { t } from '~/helpers';
+import LANG from  '~/configs/languages';
+import { setLanguage } from '~/actions/languages';
 
 export const LangSelect: React.FunctionComponent<any> = (props) => {
 	

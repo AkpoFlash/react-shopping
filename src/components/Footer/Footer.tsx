@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { COLOR_GRAY } from '../../constants/styles';
+import { COLOR_GRAY } from '~/constants/styles';
 
 const StyledFooter = styled.footer`
 	background-color: ${ COLOR_GRAY };

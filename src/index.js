@@ -5,9 +5,9 @@ import { HashRouter } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import throttle from 'lodash/throttle';
 
-import App from './components/App';
-import store from './store';
-import { saveState } from './helpers/localStorage';
+import App from '~/components/App';
+import store from '~/store';
+import { saveState } from '~/helpers/localStorage';
 
 store.subscribe( throttle(
     () => {

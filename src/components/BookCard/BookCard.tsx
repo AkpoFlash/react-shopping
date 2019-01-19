@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 
-import { addBookToCard, removeBookFromCard } from '../../actions/cards';
-import { t } from '../../helpers';
-import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '../../constants/styles';
+import { addBookToCard, removeBookFromCard } from '~/actions/cards';
+import { t } from '~/helpers';
+import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '~/constants/styles';
 
 const StyledBookCard = styled.div`
   height: 100%;
