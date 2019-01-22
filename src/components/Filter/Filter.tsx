@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { debounce } from 'lodash';
 import * as PropTypes from 'prop-types';
 
-import { t } from '~/helpers';
+import t from '~/helpers/translator';
 import { setFilter, setSearchQuery } from '~/actions/filter';
 import { COLOR_GRAY } from '~/constants/styles';
 

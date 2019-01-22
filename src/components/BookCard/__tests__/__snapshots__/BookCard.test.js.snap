@@ -3,19 +3,26 @@
 exports[`Dumb BookCard check BookCard snapshot 1`] = `
 <styled.div>
   <Styled(Link)
-    to="/books/undefined"
+    to="/books/0"
   >
-    <styled.img />
+    <styled.img
+      src="https://cv7.litres.ru/sbc/33231270_cover_185-elektronnaya-kniga-den-braun-proishozhdenie-27624091.jpg"
+    />
     <styled.div>
-      <styled.h4 />
+      <styled.h4>
+        Происхождение
+      </styled.h4>
       <div>
         <span
           className="date"
-        />
+        >
+          Дэн Браун
+        </span>
       </div>
     </styled.div>
     <styled.div>
       <styled.span>
+        710
         <svg />
       </styled.span>
     </styled.div>
