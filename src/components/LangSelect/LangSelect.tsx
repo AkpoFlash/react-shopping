@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { map } from 'lodash';
 import * as PropTypes from 'prop-types';
 
-import { t } from '~/helpers';
+import t from '~/helpers/translator';
 import LANG from  '~/configs/languages';
 import { setLanguage } from '~/actions/languages';
 

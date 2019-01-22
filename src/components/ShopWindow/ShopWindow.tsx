@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { orderBy, filter} from 'lodash';
-import * as PropTypes from 'prop-types';
 
-import { t } from '~/helpers';
+import t from '~/helpers/translator';
 import Filter from '~/components/Filter/Filter';
 import BookCard from '~/components/BookCard/BookCard';
+import { BOOK_TYPE, FILTER_TYPE } from '~/constants/types';
 
 const StyledShopWindow = styled.div`
   display: grid;
@@ -16,24 +16,35 @@ const StyledShopWindow = styled.div`
   grid-auto-columns: minmax(100px, 20%);
 `;
 
-export const ShopWindow: React.FunctionComponent<any> = (props) => {
-	const { books, isReady } = props;
+interface State {
+	books: {
+		items: Array<BOOK_TYPE>;
+		isReady: boolean;
+	}
+	filter: FILTER_TYPE;
+}
 
+interface Props {
+	books: Array<BOOK_TYPE>;
+	isReady: boolean;
+	filter: FILTER_TYPE;
+}
+
+export const ShopWindow = ({ books, isReady }: Props) => {
 	return (
 		<StyledShopWindow>
 			<Filter />
 			{
 			!isReady ? t('Loading...') :
 				books.map((book, i) => (
-					<BookCard key={ book.id } { ...book } />
+					<BookCard key={ book.id } book={ book } />
 				))
 			}
 		</StyledShopWindow>
 	);
-
 };
 
-const sortBy = (books, filterBy, searchQuery) => {
+const sortBy = (books: Array<BOOK_TYPE>, filterBy: string, searchQuery: string): Array<BOOK_TYPE> => {
 	books = filter(books, (item) => isInclude(item, searchQuery));
 	switch (filterBy) {
 		case 'all':
@@ -49,19 +60,14 @@ const sortBy = (books, filterBy, searchQuery) => {
 	}
 }
 
-const isInclude = (item, searchQuery) => {
+const isInclude = (item: BOOK_TYPE, searchQuery: string): boolean => {
 	return item.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
 		item.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0;
 }
 
-const mapStateToProps = ({ books, filter }) => ({
+const mapStateToProps = ({ books, filter }: State) => ({
 	books: sortBy(books.items, filter.filterBy, filter.searchQuery),
 	isReady: books.isReady,
 })
-
-ShopWindow.propTypes = {
-	books: PropTypes.array.isRequired,
-	isReady: PropTypes.bool.isRequired,
-};
 
 export default connect(mapStateToProps)(React.memo(ShopWindow));

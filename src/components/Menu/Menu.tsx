@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 
-import { t } from '~/helpers';
+import t from '~/helpers/translator';
 import Basket from '~/components/Basket/Basket';
 import LangSelect from '~/components/LangSelect/LangSelect';
 

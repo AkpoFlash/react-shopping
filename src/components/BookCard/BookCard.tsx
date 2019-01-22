@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import * as PropTypes from 'prop-types';
 
 import { addBookToCard, removeBookFromCard } from '~/actions/cards';
-import { t } from '~/helpers';
+import t from '~/helpers/translator';
 import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '~/constants/styles';
+import { BOOK_TYPE, CARD_TYPE, LANGUAGES_TYPE, DISPATCH_TYPE } from '~/constants/types';
 
 const StyledBookCard = styled.div`
   height: 100%;
@@ -62,11 +62,22 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export const BookCard: React.FunctionComponent<any> = (props) => {
-  const { id, title, author, price, image } = props;
+interface State {
+  card: CARD_TYPE;
+  languages: LANGUAGES_TYPE;
+}
+
+interface Props {
+  book: BOOK_TYPE;
+  addedCount: number;
+  addBookToCard(arg0: BOOK_TYPE): void;
+}
+
+export const BookCard = (props: Props) => {
+  const { id, title, author, price, image } = props.book;
   
-  const handleAddBookToCard = (e) => {
-    props.addBookToCard(props);
+  const handleAddBookToCard = () => {
+    props.addBookToCard(props.book);
   }
 
   return (
@@ -99,21 +110,14 @@ export const BookCard: React.FunctionComponent<any> = (props) => {
   );
 };
 
-const mapStateToProps = ({ card, languages }, props) => ({
-  addedCount: card.items.reduce( (count, book) => count + (book.id === props.id ? 1 : 0), 0),
+const mapStateToProps = ({ card, languages }: State, props) => ({
+  addedCount: card.items.reduce((count, item) => count + (item.id === props.book.id ? 1 : 0), 0),
   usersLang: languages.usersLang,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  addBookToCard: book => dispatch(addBookToCard(book)),
-  removeBookFromCard: book => dispatch(removeBookFromCard(book)),
+const mapDispatchToProps = (dispatch: DISPATCH_TYPE) => ({
+  addBookToCard: (book: BOOK_TYPE) => dispatch(addBookToCard(book)),
+  removeBookFromCard: (book: BOOK_TYPE) => dispatch(removeBookFromCard(book)),
 })
-
-BookCard.propTypes = {
-  addedCount: PropTypes.number.isRequired,
-  usersLang: PropTypes.string.isRequired,
-  addBookToCard: PropTypes.func.isRequired,
-  removeBookFromCard: PropTypes.func.isRequired,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(BookCard));
