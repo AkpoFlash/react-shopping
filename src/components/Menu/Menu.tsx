@@ -7,6 +7,7 @@ import * as PropTypes from 'prop-types';
 import t from '~/helpers/translator';
 import Basket from '~/components/Basket/Basket';
 import LangSelect from '~/components/LangSelect/LangSelect';
+import { CARD_TYPE, LANGUAGES_TYPE } from '~/constants/types';
 
 const StyledMenu = styled.nav`
 	width: 100%;
@@ -30,8 +31,13 @@ const StyledMenu = styled.nav`
   }
 `;
 
-export const Menu: React.FunctionComponent<any> = (props) => {
-  const handleItemClick = (e) => {}
+interface Props {
+  card: CARD_TYPE;
+  languages: LANGUAGES_TYPE;
+}
+
+export const Menu = (props: Props) => {
+  const handleItemClick = () => {}
 
   return (
     <StyledMenu>
@@ -73,7 +79,7 @@ export const Menu: React.FunctionComponent<any> = (props) => {
   );
 };
 
-const mapStateToProps = ({ card, languages }) => ({
+const mapStateToProps = ({ card, languages }: Props) => ({
   totalPrice: card.items.reduce( (total, book) => total + book.price, 0),
   count: card.items.length,
   items: card.items,

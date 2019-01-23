@@ -70,7 +70,7 @@ interface State {
 interface Props {
   book: BOOK_TYPE;
   addedCount: number;
-  addBookToCard(arg0: BOOK_TYPE): void;
+  addBookToCard: (arg0: BOOK_TYPE) => void;
 }
 
 export const BookCard = (props: Props) => {

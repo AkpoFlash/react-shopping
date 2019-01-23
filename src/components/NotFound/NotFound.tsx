@@ -10,10 +10,12 @@ import {
 const ErrorPage = styled.div`
 	grid-column: 2;
 	grid-row: 2;
-	height: calc( 100vh - ${ HEADER_HEIGHT} - ${ FOOTER_HEIGHT } - 2 * ${ GRID_GAP } );
+	height: calc( 100vh - ${ HEADER_HEIGHT } - ${ FOOTER_HEIGHT } - 2 * ${ GRID_GAP } );
 `;
 
-const NotFound: React.FunctionComponent<any> = (props) => {
+interface Props { }
+
+const NotFound = (props: Props) => {
 	return (
 		<ErrorPage>
 			404 - Page not found

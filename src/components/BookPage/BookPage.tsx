@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { find } from 'lodash';
 import * as PropTypes from 'prop-types';
-
 import { COLOR_BLACK, COLOR_GRAY } from '~/constants/styles';
+import { BOOK_TYPE } from '~/constants/types';
+import { Route, Router, match } from 'react-router';
 
 const Book = styled.div`
 	width: 100%;
@@ -43,7 +44,22 @@ const Rating = styled.div`
 
 `;
 
-export const BookPage: React.FunctionComponent<any> = (props) => {
+interface State {
+	books: {
+		items: Array<BOOK_TYPE>;
+	};
+}
+
+interface Props {
+	books: Array<BOOK_TYPE>;
+	match: RouteComponentProps<any>;
+}
+
+export interface RouteComponentProps<P> {
+	match: match<P>;
+}
+
+export const BookPage = (props: Props & RouteComponentProps<any>) => {
 	const { id } = props.match.params;
 	const book: any = find( props.books, { 'id': +id } );
 
@@ -69,7 +85,7 @@ export const BookPage: React.FunctionComponent<any> = (props) => {
 	);
 };
 
-const mapStateToProps = ({ books }) => ({
+const mapStateToProps = ({ books }: State) => ({
 	books: books.items,
 });
 
