@@ -6,12 +6,22 @@ import * as PropTypes from 'prop-types';
 import t from '~/helpers/translator';
 import LANG from  '~/configs/languages';
 import { setLanguage } from '~/actions/languages';
+import { LANGUAGES_TYPE, DISPATCH_TYPE } from '~/constants/types';
 
-export const LangSelect: React.FunctionComponent<any> = (props) => {
+interface State {
+	languages: LANGUAGES_TYPE;
+}
+
+interface Props {
+	usersLang: string;	
+	setLanguage(arg0: object): void;
+}
+
+export const LangSelect: React.FunctionComponent<any> = (props: Props) => {
 	
-	const handleChangeLang = (e) => {
+	const handleChangeLang = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		props.setLanguage({
-			type: e.currentTarget.value,
+			type: event.currentTarget.value,
 		});
 	}
 
@@ -34,12 +44,12 @@ export const LangSelect: React.FunctionComponent<any> = (props) => {
 	);
 };
 
-const mapStateToProps = ({ languages }) => ({
+const mapStateToProps = ({ languages }: State) => ({
 	usersLang: languages.usersLang,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-	setLanguage: ( lang ) => dispatch(setLanguage(lang)),
+const mapDispatchToProps = (dispatch: DISPATCH_TYPE) => ({
+	setLanguage: ( lang: string ) => dispatch(setLanguage(lang)),
 });
 
 LangSelect.propTypes = {

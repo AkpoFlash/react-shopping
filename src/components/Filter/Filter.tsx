@@ -7,6 +7,7 @@ import * as PropTypes from 'prop-types';
 import t from '~/helpers/translator';
 import { setFilter, setSearchQuery } from '~/actions/filter';
 import { COLOR_GRAY } from '~/constants/styles';
+import { FILTER_TYPE, LANGUAGES_TYPE, DISPATCH_TYPE } from '~/constants/types';
 
 const StyledFilter = styled.ul`
   width: 100%;
@@ -32,19 +33,34 @@ const Search = styled.input`
   height: 100%;
 `;
 
-export const Filter: React.FunctionComponent<any> = (props) => {
+interface State {
+  filter: FILTER_TYPE;
+  languages: LANGUAGES_TYPE;
+}
+
+/* 
+  TODO Will think about how use this interface with connect (TypesScript <-> Redux)
+*/
+interface Props {
+  filterBy: string;
+  searchQuery: string;
+  setSearchQuery: (arg0: string) => void;
+  setFilter: (arg0: string | null) => void;
+}
+
+export const Filter = (props) => {
   const activeItem = props.filterBy;
 
   const perfomeChange = debounce(
-    (e) => props.setSearchQuery(e.target.value),
+    (event) => props.setSearchQuery(event.target.value),
     300
   );
 
-  const handleItemClick = (e) => {
-    props.setFilter( e.target.getAttribute('data-name') );
+  const handleItemClick = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    props.setFilter( (event.target as HTMLInputElement).getAttribute('data-name') );
   }
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.persist();
     perfomeChange(event);
   }
@@ -91,16 +107,15 @@ export const Filter: React.FunctionComponent<any> = (props) => {
   )
 };
 
-const mapStateToProps = ({ filter, languages }) => ({
+const mapStateToProps = ({ filter, languages }: State) => ({
   filterBy: filter.filterBy,
   searchQuery: filter.searchQuery,
   usersLang: languages.usersLang,
-
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    setFilter: ( filter ) => dispatch(setFilter(filter)),
-    setSearchQuery: ( value ) => dispatch(setSearchQuery(value)),
+const mapDispatchToProps = (dispatch: DISPATCH_TYPE) => ({
+    setFilter: ( filter: string ) => dispatch(setFilter(filter)),
+    setSearchQuery: ( value: string ) => dispatch(setSearchQuery(value)),
 });
 
 Filter.propTypes = {

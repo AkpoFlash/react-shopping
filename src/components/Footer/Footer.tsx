@@ -12,7 +12,9 @@ const StyledFooter = styled.footer`
 	line-height: 50px;
 `;
 
-export const Footer: React.FunctionComponent<any> = (props) => {
+interface Props { }
+
+export const Footer = (props: Props) => {
 	return (
 		<StyledFooter>
 			Copyright &#169; {(new Date()).getFullYear()}
