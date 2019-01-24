@@ -58,8 +58,9 @@ export const Menu = (props: Props) => {
           <LangSelect />
         </li>
         <li>
-          {t('Basket is empty')}
-          {/* <Popup
+          <Basket {...props} />
+          {/* {t('Basket is empty')}
+          <Popup
             trigger={
                 <li name='help' onClick={ handleItemClick }>
                   {t('Basket')}: { props.totalPrice } {t('Currency')} (<b>{ props.count }</b>)
