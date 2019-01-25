@@ -34,10 +34,14 @@ const StyledMenu = styled.nav`
 interface Props {
   card: CARD_TYPE;
   languages: LANGUAGES_TYPE;
+  count: number,
+  totalPrice: number,
 }
 
 export const Menu = (props: Props) => {
-  const handleItemClick = () => {}
+  const handleItemClick = () => {
+    /* TODO setState({ showBasket: !this.state.showBasket }); */
+  }
 
   return (
     <StyledMenu>
@@ -58,7 +62,14 @@ export const Menu = (props: Props) => {
           <LangSelect />
         </li>
         <li>
-          <Basket {...props} />
+          { props.count ?
+            <li onClick={ handleItemClick }>
+              {t('Basket')}: {props.totalPrice} {t('Currency')} (<b>{props.count}</b>)
+            </li>
+            // <Basket {...props} />
+            :
+            t('Basket is empty')
+          }
           {/* {t('Basket is empty')}
           <Popup
             trigger={

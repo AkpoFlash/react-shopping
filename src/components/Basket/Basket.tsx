@@ -1,17 +1,23 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { map } from 'lodash';
 import { reduce } from 'lodash';
 import { uniqBy } from 'lodash';
 
 import t from '~/helpers/translator';
-import { COLOR_GREEN, COLOR_RED } from '~/constants/styles';
+import { COLOR_WHITE, COLOR_GREEN, COLOR_RED } from '~/constants/styles';
+import { addBookToCard, removeBookFromCard } from '~/actions/cards';
 
 const List = styled.ul`
-
+  background-color: ${ COLOR_WHITE };
+  position: relative;
+  z-index: 10;
+  display: block;
 `;
 
 const Item = styled.li`
+  background-color: ${ COLOR_WHITE };
   width: 600px;
   display: flex;
   justify-content: space-between;
@@ -41,45 +47,54 @@ const Basket = (props: any) => {
   }, {});
 
   const handleAddClick = (book, event) => {
-    book.addBookToCard(book);
+    console.log(book);
+    props.addBookToCard(book);
   }
 
   const handleRemoveClick = (book, event) => {
-    book.removeBookFromCard(book.id);
+    console.log(book);
+    props.removeBookFromCard(book.id);
   }
   console.log(props.items);
   return (
     <List>
-      { props.items.length ?
+      { 
         map(uniqBy(props.items, 'id'), (book: any) => (
-          <Item key={book.id}>
-            <img src={book.image} />
+          <Item key={ book.id }>
+            <img src={ book.image } />
             <div>
-              <span>{book.title}</span>
-              <span>{book.author}</span>
+              <span>{ book.title }</span>
+              <span>{ book.author }</span>
             </div>
             <div>
               <Button
-                color={COLOR_GREEN}
-                onClick={handleAddClick.bind(this, book)}>
+                color={ COLOR_GREEN }
+                onClick={ handleAddClick.bind(this, book) }>
                 +
               </Button>
               <Counter>
                 { dublicateBooksCount[book.id] }
               </Counter>
               <Button
-                color={COLOR_RED}
-                onClick={handleRemoveClick.bind(this, book)}>
+                color={ COLOR_RED }
+                onClick={ handleRemoveClick.bind(this, book) }>
                 -
               </Button>
             </div>
           </Item>
         ))
-        :
-        t('Basket is empty')
     }
     </List>
   );
 };
 
-export default React.memo(Basket);
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchToProps = dispatch => ({
+  addBookToCard: book => dispatch(addBookToCard(book)),
+  removeBookFromCard: book => dispatch(removeBookFromCard(book)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Basket));
