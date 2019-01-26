@@ -7,7 +7,7 @@ import { uniqBy } from 'lodash';
 
 import t from '~/helpers/translator';
 import { COLOR_WHITE, COLOR_GREEN, COLOR_RED } from '~/constants/styles';
-import { addBookToCard, removeBookFromCard } from '~/actions/cards';
+import { addBookToCard, removeBookFromCard } from '~/actions/card';
 
 const List = styled.ul`
   background-color: ${ COLOR_WHITE };
