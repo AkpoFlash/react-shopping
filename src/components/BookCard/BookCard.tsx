@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { addBookToCard, removeBookFromCard } from '~/actions/cards';
+import { addBookToCard, removeBookFromCard } from '~/actions/card';
 import t from '~/helpers/translator';
 import { COLOR_WHITE, COLOR_BLACK, COLOR_GRAY, COLOR_TEXT } from '~/constants/styles';
 import { BOOK_TYPE, CARD_TYPE, LANGUAGES_TYPE, DISPATCH_TYPE } from '~/constants/types';

@@ -27,7 +27,7 @@ exports[`Dumb Menu check Menu snapshot 1`] = `
       <Connect(Component) />
     </li>
     <li>
-      <React.Memo />
+      Basket is empty
     </li>
   </ul>
 </styled.nav>
