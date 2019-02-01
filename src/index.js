@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 import throttle from 'lodash/throttle';
 
 import App from '~/components/App';
-import store from '~/store';
+import store from '~/store/store';
 import { saveState } from '~/helpers/localStorage';
 
 store.subscribe( throttle(
