@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
+import * as moment from 'moment';
 
 import t from '~/helpers/translator';
 import Basket from '~/components/Basket/Basket';
@@ -27,8 +28,13 @@ const StyledMenu = styled.nav`
 			display: inline-block;
 			padding: 5px 15px;
 			height: 100%;
+      vertical-align: top;
 		}
   }
+`;
+
+const SubTitle = styled.div`
+  font-size: 0.75rem;
 `;
 
 interface Props {
@@ -36,9 +42,15 @@ interface Props {
   languages: LANGUAGES_TYPE;
   count: number,
   totalPrice: number,
+  usersLang: string,
 }
 
 export const Menu = (props: Props) => {
+
+  // Change
+  moment.locale(props.usersLang.slice(0,-1));
+  const dateCouldOrderGive = moment().add(7, 'd').startOf('d').add(12, 'h').fromNow();
+
   const handleItemClick = () => {
     /* TODO setState({ showBasket: !this.state.showBasket }); */
   }
@@ -65,6 +77,9 @@ export const Menu = (props: Props) => {
           { props.count ?
             <li onClick={ handleItemClick }>
               {t('Basket')}: {props.totalPrice} {t('Currency')} (<b>{props.count}</b>)
+              <SubTitle>
+                {`${t('You can give book:')} ${dateCouldOrderGive}`}
+              </SubTitle>
             </li>
             // <Basket {...props} />
             :
